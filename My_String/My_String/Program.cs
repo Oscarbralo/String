@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
+using System.Text.RegularExpressions;
 
 namespace My_String
 {
@@ -89,6 +90,19 @@ namespace My_String
                 }
             }
             return -1;
+        }
+        
+        public int IndexOf(string text, char c)
+        {
+            Regex r = new Regex(c.ToString());
+            if(r.IsMatch(text))
+            {
+                return r.Match(text).Index.ToString()
+            }
+            else
+            {
+                return -1;
+            }
         }
 
         /// <summary>
